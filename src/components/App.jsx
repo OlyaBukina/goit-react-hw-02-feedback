@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { GlobalStyle } from './GlobalStyle';
-import { Layout } from './Layout/Layout';
+import { Container } from './Container/Container.styled';
 import { Section } from './Section/Section';
 import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Statistics } from './Statistics/Statistics';
@@ -38,13 +38,14 @@ export class App extends Component {
     const total = this.countTotalFeedback();
     const positivePercentage = this.countPositiveFeedbackPercentage();
     return (
-      <Layout>
+      <Container>
         <Section title="Please leave feedback">
           <FeedbackOptions
             options={this.state}
             onLeaveFeedback={this.icrementFeedback}
           ></FeedbackOptions>
         </Section>
+
         <Section title="Statistics">
           {total ? (
             <Statistics
@@ -59,7 +60,7 @@ export class App extends Component {
           )}
         </Section>
         <GlobalStyle />
-      </Layout>
+      </Container>
     );
   }
 }
